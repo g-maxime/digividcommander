@@ -1,0 +1,26 @@
+# $Id$
+# Maintainer: MediaArea.net SARL <info@mediaarea.net>
+
+pkgname='sony9pin'
+pkgver=1.0
+pkgrel=1
+pkgdesc="Control Sony capture deck over serial interface"
+url="http://mediaarea.net"
+license=('MIT')
+source=(${pkgname}_${pkgver}-1.tar.gz)
+md5sums=('00000000000000000000000000000000')
+arch=('i686' 'x86_64')
+
+depends=('qt5-base' 'qt5-serialport')
+
+build() {
+    mkdir -p "${srcdir}"/sony9pin/tools/sony9pin/build
+    cd "${srcdir}"/sony9pin/tools/sony9pin/build
+    qmake-qt5 ..
+    make
+}
+
+package() {
+    install -D -m 0755 "${srcdir}"/sony9pin/tools/sony9pin/build/sony9pin "${pkgdir}"/usr/bin/sony9pin
+}
+

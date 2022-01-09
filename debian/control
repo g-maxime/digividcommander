@@ -1,0 +1,22 @@
+Source: sony9pin
+Priority: optional
+Maintainer: Jerome Martinez <info@mediaarea.net>
+Build-Depends: debhelper (>= 5), qtbase5-dev, libqt5serialport5-dev, qtchooser
+Standards-Version: 3.7.3
+Section: utils
+Homepage: https://mipops.github.io/digividcommander
+
+Package: sony9pin
+Section: utils
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: sony9pin: Control Sony capture deck over serial interface
+
+Package: sony9pin-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: sony9pin (= ${binary:Version})
+Description: sony9pin: Control Sony capture deck over serial interface
+ .
+ This package contains the debugging symbols.
